@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "load-script": "^1.0.0",
-    "lodash": "^4.3.0",
+    "lodash.isstring": "^4.0.1",
+    "lodash.foreach": "^4.5.0",
+    "lodash.upperfirst": "^4.3.1",
     "sister": "^3.0.0"
   },
   "description": "YouTube IFrame Player API abstraction.",

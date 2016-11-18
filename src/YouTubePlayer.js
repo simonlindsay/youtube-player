@@ -1,4 +1,5 @@
-import _ from 'lodash';
+import _forEach from 'lodash.foreach';
+import _upperFirst from 'lodash.upperfirst';
 import functionNames from './functionNames';
 import eventNames from './eventNames';
 
@@ -16,8 +17,8 @@ const YouTubePlayer = {};
 YouTubePlayer.proxyEvents = (emitter) => {
   const events = {};
 
-  _.forEach(eventNames, (eventName) => {
-    const onEventName = 'on' + _.upperFirst(eventName);
+  _forEach(eventNames, (eventName) => {
+    const onEventName = 'on' + _upperFirst(eventName);
 
     events[onEventName] = (event) => {
       emitter.trigger(eventName, event);
@@ -37,7 +38,7 @@ YouTubePlayer.proxyEvents = (emitter) => {
 YouTubePlayer.promisifyPlayer = (playerAPIReady) => {
   const functions = {};
 
-  _.forEach(functionNames, (functionName) => {
+  _forEach(functionNames, (functionName) => {
     functions[functionName] = (...args) => {
       return playerAPIReady
                 .then((player) => {
